@@ -28,10 +28,6 @@ jobs:
             goos: darwin
             goarch: arm64
             devkit: macos-arm64
-          - os: macos-13
-            goos: darwin
-            goarch: amd64
-            devkit: macos-x86_64
           - os: ubuntu-latest
             goos: linux
             goarch: amd64
