@@ -1,0 +1,34 @@
+version: 2
+
+updates:
+  # Go modules — tracks the Frida version via github.com/frida/frida-go.
+  # NOTE: Dependabot cannot update the FRIDA_VERSION env in
+  # .github/workflows/release.yml (the frida-core devkit is a raw release asset,
+  # not a tracked dependency). When the "frida" group below opens a PR bumping
+  # frida-go, bump FRIDA_VERSION in the release workflow to the SAME Frida
+  # version in that same PR — the devkit and the Go binding must match.
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "go"
+    groups:
+      frida:
+        patterns:
+          - "github.com/frida/*"
+    commit-message:
+      prefix: "gomod"
+
+  # GitHub Actions used by the release workflow.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "ci"
