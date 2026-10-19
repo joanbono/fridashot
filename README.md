@@ -7,7 +7,7 @@ It renders the app's key `UIWindow` to a PNG in-process (`UIGraphicsBeginImageCo
 ## Usage
 
 ```bash
-fridashot -n "Caspar Dev" -o shot.png          # attach to a running app by display/process name
+fridashot -n "Twitter" -o shot.png          # attach to a running app by display/process name
 fridashot -p 1234         -o shot.png           # attach by PID
 fridashot -b com.example.app -delay 9 -o shot.png   # spawn fresh, wait 9s for UI, capture, then kill
 fridashot -b com.example.app -keep -o shot.png  # ...and leave it running
